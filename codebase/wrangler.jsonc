@@ -13,7 +13,7 @@
   ],
   "assets": {
     "directory": "./dist",
-    "binding": "ASSETS",
+    "binding": "ASSETS"
   },
   "preview_urls": false,
   "workers_dev": true,
@@ -23,22 +23,31 @@
   },
   "env": {
     "production":{
-      // "routes": [
+      // "routes": [ // This is for creating custom domains
       //   {
-      //     "pattern": "toyotalogistics.com.ph",
+      //     "pattern": "[your-domain].com.ph",
       //     "custom_domain": true
       //   }
       // ],
       "vars":{
-        "ENVIRONMENT_STATUS": "live",
+        "ENVIRONMENT_STATUS": "live" // For declaring if it is in maintenance or not
       },
-      "name": "monster-hunter-wilds-agent"
+      // "kv_namespaces": [
+      //   {
+      //     "binding": "x--kv-namespace--x",
+      //     "id": "x--kv-id--x",
+      //   }
+      // ],
+      "name": "monster-hunter-wilds-agent",
     },
     "staging":{
       "vars":{
-        "ENVIRONMENT_STATUS": "live",
+        "ENVIRONMENT_STATUS": "live" // For declaring if it is in maintenance or not
       },
       "name": "monster-hunter-wilds-agent-staging"
     }
   },
+  "ai": {
+    "binding": "AI"
+  }
 }
