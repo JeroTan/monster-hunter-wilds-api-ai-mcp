@@ -1,0 +1,44 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "main": "./dist/_worker.js/index.js",
+  "name": "monster-hunter-wilds-agent",
+  "compatibility_date": "2025-03-25",
+  "compatibility_flags": [
+    // Enable Node.js API
+    // see https://developers.cloudflare.com/workers/configuration/compatibility-flags/#nodejs-compatibility-flag
+    "nodejs_compat",
+    // Allow to fetch URLs in your app
+    // see https://developers.cloudflare.com/workers/configuration/compatibility-flags/#global-fetch-strictly-public
+    "global_fetch_strictly_public",
+  ],
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS",
+  },
+  "preview_urls": false,
+  "workers_dev": true,
+  "observability": {
+    "enabled": true,
+    "head_sampling_rate": 1
+  },
+  "env": {
+    "production":{
+      // "routes": [
+      //   {
+      //     "pattern": "toyotalogistics.com.ph",
+      //     "custom_domain": true
+      //   }
+      // ],
+      "vars":{
+        "ENVIRONMENT_STATUS": "live",
+      },
+      "name": "monster-hunter-wilds-agent"
+    },
+    "staging":{
+      "vars":{
+        "ENVIRONMENT_STATUS": "live",
+      },
+      "name": "monster-hunter-wilds-agent-staging"
+    }
+  },
+}
